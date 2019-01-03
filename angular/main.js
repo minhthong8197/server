@@ -1563,6 +1563,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _model_cardViewPost_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../model/cardViewPost.model */ "./src/app/model/cardViewPost.model.ts");
 /* harmony import */ var src_app_model_province_city_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/model/province-city.model */ "./src/app/model/province-city.model.ts");
 /* harmony import */ var _constant_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constant.service */ "./src/app/core/services/constant.service.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1578,16 +1579,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ServerService = /** @class */ (function () {
     function ServerService(http, constant) {
         this.http = http;
         this.constant = constant;
-        this.HOST = 'http://i-travel-website.herokuapp.com:' + (7979) + '/';
+        // HOST: String = 'http://localhost:7979/';
+        this.HOST = _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].apiUrl + '/';
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
                 'Content-Type': 'application/json'
             })
         };
+        console.log(this.HOST);
     }
     /**
      * Get list 63 VietNam's provinces
@@ -3438,7 +3442,7 @@ var AddCommentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row comp\">\r\n  <div class=\"col-12\">\r\n    <div class=\"row m-0\">\r\n      <!-- Avatar on the left -->\r\n      <div class=\"rounded-circle avatar\" [ngStyle]=\"{'background-image': 'url(' + commentAuthorAvatar + ')'}\">\r\n      </div>\r\n      <!-- right part -->\r\n      <div class=\"col pl-0\">\r\n        <!-- Username and time -->\r\n        <div class=\"col-12\">\r\n          <p><span>{{ commentAuthorName }}</span> - {{ creationTimeString }}</p>\r\n        </div>\r\n        <!-- comment content -->\r\n        <div class=\"col-12 pr-0\">\r\n          <p>{{ commentItem.content }}</p>\r\n        </div>\r\n        <!-- like, dislike and reply button -->\r\n        <div class=\"col-12\" *ngIf=\"userService.currentUser._id\">\r\n          <span class=\"btn fas fa-thumbs-up\" (click)=\"onLikeComment()\"></span>\r\n          <span class=\"btn no-pointer\" *ngIf=\"commentItem.userLiked.length > 0\">{{ commentItem.userLiked.length }}</span>\r\n          <span class=\"btn fas fa-thumbs-down\" (click)=\"onDislikeComment()\"></span>\r\n          <span class=\"btn no-pointer\" *ngIf=\"commentItem.userDisliked.length > 0\">{{commentItem.userDisliked.length}}</span>\r\n          <span class=\"btn\" *ngIf=\"false\">REPLY</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row comp\">\r\n  <div class=\"col-12\">\r\n    <div class=\"row m-0\">\r\n      <!-- Avatar on the left -->\r\n      <div class=\"rounded-circle avatar\" [ngStyle]=\"{'background-image': 'url(' + commentAuthorAvatar + ')'}\">\r\n      </div>\r\n      <!-- right part -->\r\n      <div class=\"col pl-0\">\r\n        <!-- Username and time -->\r\n        <div class=\"col-12\">\r\n          <p><span>{{ commentAuthorName }}</span> - {{ creationTimeString }}</p>\r\n        </div>\r\n        <!-- comment content -->\r\n        <div class=\"col-12 pr-0\">\r\n          <p>{{ commentItem.content }}</p>\r\n        </div>\r\n        <!-- like, dislike and reply button -->\r\n        <div class=\"col-12\" *ngIf=\"userService.currentUser._id\">\r\n          <span class=\"btn fas fa-thumbs-up\" (click)=\"onLikeComment()\"></span>\r\n          <span class=\"btn no-pointer\" *ngIf=\"commentItem.userLiked.length > 0\">{{ commentItem.userLiked.length }}</span>\r\n          <span class=\"btn fas fa-thumbs-down\" (click)=\"onDislikeComment()\"></span>\r\n          <span class=\"btn no-pointer\" *ngIf=\"commentItem.userDisliked.length > 0\">{{commentItem.userDisliked.length}}</span>\r\n          <span class=\"btn\">REPLY</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -4768,7 +4772,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiUrl: 'http://localhost:4200'
+    apiUrl: 'http://localhost:7979'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as

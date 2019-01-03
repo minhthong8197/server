@@ -24,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 // allow outside connect to /images and map to server/images folder on server
 app.use('/api/images', express.static(path.join(__dirname, "images")));
-app.use('/', express.static(path.join(__dirname, "angular")))
+app.use('/', express.static(path.join(__dirname, "angular")));
+app.use('/home', express.static(path.join(__dirname, "angular")))
 
 app.listen(config.APP_PORT, () => {
     console.log('Server is running at http://localhost:' + config.APP_PORT + '/');
@@ -326,7 +327,7 @@ app.post('/user/post', (req, res, next) => {
                 for (const category of post.categories) {
                     category._id = new ObjectId(category._id);
                 }
-                post.rating = [];
+                post.rating = 0;
                 post.status = 'PENDING';
                 // fix all complete
                 // pass the post to insertOneToColection(), function will upload to server automaticaly
