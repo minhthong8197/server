@@ -1591,7 +1591,7 @@ var ServerService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        // console.log(this.HOST);
+        console.log(this.HOST);
     }
     /**
      * Get list 63 VietNam's provinces
